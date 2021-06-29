@@ -2,14 +2,12 @@
 import './App.css';
 import React from 'react'
 import Sketch from 'react-p5';
-import p5Types from "p5";
 import font from "./assets/Inconsolata/Inconsolata-Bold.ttf";
 
 
 function App() {
   // Constants
   let font1;
-  let a;
   let rotation;
   let cylWidth, cylHeight;
   let focus = 0;
