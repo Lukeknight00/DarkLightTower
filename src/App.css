@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +38,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.App {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+canvas {
+  margin-bottom: -10px;
 }
