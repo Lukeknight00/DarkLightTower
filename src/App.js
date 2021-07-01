@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 /// <reference path="../TSDef/p5.d.ts" />
 import './App.css';
 import React from 'react'
@@ -109,30 +110,32 @@ function App() {
 
     //the tower
     p5.push();
-    p5.rotateY(rotation);
-    p5.fill(255);
-    p5.strokeWeight(0);
-    p5.fill(40);
-    p5.cylinder(cylWidth, cylHeight, 6);
+    {
+      p5.rotateY(rotation);
+      p5.fill(255);
+      p5.strokeWeight(0);
+      p5.fill(40);
+      p5.cylinder(cylWidth, cylHeight, 6);
 
-    //the top
-    p5.rotateX(p5.PI);
-    p5.translate(0, cylHeight / 2 + cylHeight / 6, 0)
-    p5.rotateY(p5.PI)
-    p5.strokeWeight(9);
-    p5.noFill();
-    p5.cone(cylWidth, cylHeight / 3, 6);
-    //color logic with the slider
-    if (orbSizeSlider.value() === 0) {
-      p5.stroke(0, 0, 0);
-    } else {
-      p5.stroke(249, 255, 69);
+      //the top
+      p5.rotateX(p5.PI);
+      p5.translate(0, cylHeight / 2 + cylHeight / 6, 0)
+      p5.rotateY(p5.PI)
+      p5.strokeWeight(9);
+      p5.noFill();
+      p5.cone(cylWidth, cylHeight / 3, 6);
+      //color logic with the slider
+      if (orbSizeSlider.value() === 0) {
+        p5.stroke(0, 0, 0);
+      } else {
+        p5.stroke(249, 255, 69);
+      }
+
+      //the light orb
+      p5.noLights();
+      p5.translate(0, -10, 0)
+      p5.sphere(cylWidth * orbSizeSlider.value() / 25);
     }
-
-    //the light orb
-    p5.noLights();
-    p5.translate(0, -10, 0)
-    p5.sphere(cylWidth * orbSizeSlider.value() / 25);
     p5.pop();
 
 
@@ -179,11 +182,13 @@ function App() {
         rotation = 2 * p5.PI / 3;
         //title
         p5.push();
-        p5.translate(0, 0, 200);
-        p5.textSize(100);
-        p5.fill(255);
-        p5.textAlign(p5.CENTER);
-        p5.text("Recharge", 0, p5.windowHeight / 2 - 2 * p5.textSize());
+        {
+          p5.translate(0, 0, 200);
+          p5.textSize(100);
+          p5.fill(255);
+          p5.textAlign(p5.CENTER);
+          p5.text("Recharge", 0, p5.windowHeight / 2 - 2 * p5.textSize());
+        }
         p5.pop();
 
         //the Button:
@@ -211,7 +216,7 @@ function App() {
         p5.push();
         button.style('opacity', "100");
         var lowQuality = qualitySliderValues[qualitySlider.value() - 2];
-        lowQuality ??= qualitySliderValues[0];
+        lowQuality ?? (lowQuality = qualitySliderValues[0]);
         button.html("Reforge your item to an item between " + lowQuality + " and " + qualitySliderValues[qualitySlider.value() + 1]);
         p5.pop();
         break;
