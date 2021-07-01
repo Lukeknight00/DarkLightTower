@@ -195,7 +195,7 @@ function App() {
         p5.push();
         button.style('opacity', "100");
         button.html("Recharge your item up to " + Math.floor(chargesSlider.value() * 1.5));
-        orbSizeSlider.value(orbSizeSlider.value() - 2);
+       // orbSizeSlider.value(orbSizeSlider.value() - 2);
         p5.pop();
         break;
 
@@ -215,9 +215,11 @@ function App() {
         //the Button:
         p5.push();
         button.style('opacity', "100");
-        var lowQuality = qualitySliderValues[qualitySlider.value() - 2];
+        let lowQuality = qualitySliderValues[qualitySlider.value() - 2];
+        let highQuality = qualitySliderValues[qualitySlider.value() + 1];
         lowQuality ?? (lowQuality = qualitySliderValues[0]);
-        button.html("Reforge your item to an item between " + lowQuality + " and " + qualitySliderValues[qualitySlider.value() + 1]);
+        highQuality ?? (highQuality =qualitySliderValues[4]);
+        button.html("Reforge your item to an item between " + lowQuality + " and " +highQuality);
         p5.pop();
         break;
       //side 3 : Reinfuser - change a magical artifact into something completly new of the same level or +-1 ()
