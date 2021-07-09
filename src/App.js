@@ -217,8 +217,8 @@ function App() {
         //the Button:
         p5.push();
         button.style('opacity', "100");
-        let lowQuality = qualitySliderValues[qualitySlider.value() - 2];
-        let highQuality = qualitySliderValues[qualitySlider.value() + 1];
+        var lowQuality = qualitySliderValues[qualitySlider.value() - 2];
+        var highQuality = qualitySliderValues[qualitySlider.value() + 1];
         lowQuality ?? (lowQuality = qualitySliderValues[0]);
         highQuality ?? (highQuality =qualitySliderValues[4]);
         button.html("Reforge your item to an item between " + lowQuality + " and " + highQuality);
@@ -239,7 +239,11 @@ function App() {
         //the Button:
         p5.push();
         button.style('opacity', "100");
-        button.html("Reduce your item to Precipitate");
+        var lowQuality = qualitySliderValues[qualitySlider.value() - 2];
+        var highQuality = qualitySliderValues[qualitySlider.value() + 1];
+        lowQuality ?? (lowQuality = qualitySliderValues[0]);
+        highQuality ?? (highQuality =qualitySliderValues[4]);
+        button.html("Reinfuse your item to an item between " + lowQuality + " and " + highQuality);
         button.mousePressed(reinfuse);
         p5.pop();
         break;
